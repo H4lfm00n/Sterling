@@ -47,7 +47,7 @@
   }
   
   .markdown-content {
-    @apply prose prose-sm max-w-none;
+    @apply max-w-none;
   }
   
   .markdown-content h1 {
