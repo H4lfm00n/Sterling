@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-secondary-200;
+  }
+  
+  body {
+    @apply bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-white dark:ring-offset-secondary-900;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-900 hover:bg-secondary-200;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-secondary-100 hover:text-secondary-900;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-secondary-200 bg-white px-3 py-2 text-sm ring-offset-white dark:ring-offset-secondary-900 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-secondary-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card {
+    @apply rounded-lg border border-secondary-200 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white shadow-sm;
+  }
+  
+  .sidebar {
+    @apply bg-secondary-50 border-r border-secondary-200;
+  }
+  
+  .markdown-content {
+    @apply prose prose-sm max-w-none;
+  }
+  
+  .markdown-content h1 {
+    @apply text-2xl font-bold text-secondary-900 mb-4;
+  }
+  
+  .markdown-content h2 {
+    @apply text-xl font-semibold text-secondary-800 mb-3;
+  }
+  
+  .markdown-content h3 {
+    @apply text-lg font-medium text-secondary-700 mb-2;
+  }
+  
+  .markdown-content p {
+    @apply text-secondary-700 mb-3;
+  }
+  
+  .markdown-content ul {
+    @apply list-disc list-inside mb-3;
+  }
+  
+  .markdown-content ol {
+    @apply list-decimal list-inside mb-3;
+  }
+  
+  .markdown-content code {
+    @apply bg-secondary-100 text-secondary-800 px-1 py-0.5 rounded text-sm font-mono;
+  }
+  
+  .markdown-content pre {
+    @apply bg-secondary-900 text-secondary-100 p-4 rounded-lg overflow-x-auto;
+  }
+  
+  .markdown-content blockquote {
+    @apply border-l-4 border-primary-500 pl-4 italic text-secondary-600;
+  }
+  
+  .markdown-content a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary-400;
+}
+
+
