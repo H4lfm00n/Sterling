@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import { Note } from '../types'
 import { useNotes } from '../contexts/NoteContext'
 import { useTheme } from '../contexts/ThemeContext'
@@ -9,7 +8,7 @@ interface EditorProps {
   onUpdate: (updates: Partial<Note>) => void
 }
 
-const Editor: React.FC<EditorProps> = ({ note, onUpdate }) => {
+const Editor: React.FC<EditorProps> = ({ note }) => {
   const [content, setContent] = useState(note.content)
   const [title, setTitle] = useState(note.title)
   const [isEditing, setIsEditing] = useState(false)
@@ -63,7 +62,7 @@ const Editor: React.FC<EditorProps> = ({ note, onUpdate }) => {
     // Tab key handling
     if (e.key === 'Tab') {
       e.preventDefault()
-      const textarea = e.currentTarget
+      const textarea = e.currentTarget as HTMLTextAreaElement
       const start = textarea.selectionStart
       const end = textarea.selectionEnd
       
@@ -77,23 +76,23 @@ const Editor: React.FC<EditorProps> = ({ note, onUpdate }) => {
     }
   }
 
-  const insertText = (text: string) => {
-    const textarea = textareaRef.current
-    if (!textarea) return
-    
-    const start = textarea.selectionStart
-    const end = textarea.selectionEnd
-    const newContent = content.substring(0, start) + text + content.substring(end)
-    
-    setContent(newContent)
-    updateNote(note.id, { content: newContent })
-    
-    // Set cursor position after inserted text
-    setTimeout(() => {
-      textarea.selectionStart = textarea.selectionEnd = start + text.length
-      textarea.focus()
-    }, 0)
-  }
+  // const insertText = (text: string) => {
+  //   const textarea = textareaRef.current
+  //   if (!textarea) return
+  //   
+  //   const start = textarea.selectionStart
+  //   const end = textarea.selectionEnd
+  //   const newContent = content.substring(0, start) + text + content.substring(end)
+  //   
+  //   setContent(newContent)
+  //   updateNote(note.id, { content: newContent })
+  //   
+  //   // Set cursor position after inserted text
+  //   setTimeout(() => {
+  //     textarea.selectionStart = textarea.selectionEnd = start + text.length
+  //     textarea.focus()
+  //   }, 0)
+  // }
 
   const formatText = (format: string) => {
     const textarea = textareaRef.current

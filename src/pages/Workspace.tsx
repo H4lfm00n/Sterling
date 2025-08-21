@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import { motion } from 'framer-motion'
 import { 
   Edit3, 
   Eye, 
@@ -13,7 +12,7 @@ import {
   Share2
 } from 'lucide-react'
 import { useNotes } from '../contexts/NoteContext'
-import { useTheme } from '../contexts/ThemeContext'
+// import { useTheme } from '../contexts/ThemeContext'
 import { ViewMode } from '../types'
 import Editor from '../components/Editor'
 import Preview from '../components/Preview'
@@ -22,7 +21,7 @@ import WelcomeNote from '../components/WelcomeNote'
 
 const Workspace: React.FC = () => {
   const { state, createNote, getNoteById } = useNotes()
-  const { settings } = useTheme()
+  // const { settings } = useTheme()
   const [selectedNoteId, setSelectedNoteId] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<ViewMode>('split')
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -98,7 +97,7 @@ Start exploring and building your knowledge network!`,
           <div className="h-full">
             <Editor
               note={selectedNote}
-              onUpdate={(updates) => {
+              onUpdate={(_updates) => {
                 // Handle note updates
               }}
             />
@@ -118,7 +117,7 @@ Start exploring and building your knowledge network!`,
             <div className="w-1/2 h-full">
               <Editor
                 note={selectedNote}
-                onUpdate={(updates) => {
+                onUpdate={(_updates) => {
                   // Handle note updates
                 }}
               />

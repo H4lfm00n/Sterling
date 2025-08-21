@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Search, Settings, Plus, FolderOpen, FileText, Tag, Link, BarChart3 } from 'lucide-react'
+// import { Menu, X, Search, Settings, Plus, FolderOpen, FileText, Tag, Link, BarChart3 } from 'lucide-react'
 import Sidebar from './Sidebar'
 import Header from './Header'
 import { useTheme } from '../contexts/ThemeContext'

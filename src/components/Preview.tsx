@@ -3,14 +3,14 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import { Note } from '../types'
-import { useNotes } from '../contexts/NoteContext'
+// import { useNotes } from '../contexts/NoteContext'
 
 interface PreviewProps {
   note: Note
 }
 
 const Preview: React.FC<PreviewProps> = ({ note }) => {
-  const { getNoteById } = useNotes()
+  // const { getNoteById } = useNotes()
 
   // Custom components for markdown rendering
   const components = {
@@ -18,7 +18,7 @@ const Preview: React.FC<PreviewProps> = ({ note }) => {
     a: ({ href, children, ...props }: any) => {
       if (href?.startsWith('[[') && href?.endsWith(']]')) {
         const noteTitle = href.slice(2, -2)
-        const linkedNote = Object.values(getNoteById(noteTitle) || {})
+        // const linkedNote = Object.values(getNoteById(noteTitle) || {})
         
         return (
           <button
@@ -36,8 +36,7 @@ const Preview: React.FC<PreviewProps> = ({ note }) => {
       
       return (
         <a
-          href={href}
-          target="_blank"
+        
           rel="noopener noreferrer"
           className="text-primary-600 hover:text-primary-700 underline"
           {...props}
@@ -180,7 +179,7 @@ const Preview: React.FC<PreviewProps> = ({ note }) => {
   // Process content to handle internal links
   const processContent = (content: string) => {
     // Convert [[note title]] to markdown links
-    return content.replace(/\[\[([^\]]+)\]\]/g, (match, noteTitle) => {
+    return content.replace(/\[\[([^\]]+)\]\]/g, (_match, noteTitle) => {
       return `[${noteTitle}]([[${noteTitle}]])`
     })
   }

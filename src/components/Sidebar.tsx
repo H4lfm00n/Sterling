@@ -5,17 +5,17 @@ import {
   Tag, 
   Link, 
   BarChart3, 
-  FolderOpen, 
+  // FolderOpen, 
   ChevronDown, 
   ChevronRight,
   Plus,
   MoreVertical,
   Star,
-  Archive,
-  Trash2
+  // Archive,
+  // Trash2
 } from 'lucide-react'
 import { useNotes } from '../contexts/NoteContext'
-import { Note, Tag as TagType } from '../types'
+import { Note } from '../types'
 
 const Sidebar: React.FC = () => {
   const { state, createNote } = useNotes()

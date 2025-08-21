@@ -63,6 +63,8 @@ export interface GraphNode {
   color: string
   x?: number
   y?: number
+  fx?: number | null
+  fy?: number | null
 }
 
 export interface GraphEdge {

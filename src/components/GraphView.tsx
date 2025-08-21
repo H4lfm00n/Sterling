@@ -82,18 +82,18 @@ const GraphView: React.FC = () => {
       .style('pointer-events', 'none')
 
     // Add hover effects
-    node.on('mouseover', function(event, d) {
+    node.on('mouseover', function(_event, _d) {
       d3.select(this).select('circle')
         .transition()
         .duration(200)
-        .attr('r', (d: GraphNode) => d.size * 1.2)
+        .attr('r', (d: any) => d.size * 1.2)
         .attr('stroke-width', 3)
     })
-    .on('mouseout', function(event, d) {
+    .on('mouseout', function(_event, _d) {
       d3.select(this).select('circle')
         .transition()
         .duration(200)
-        .attr('r', (d: GraphNode) => d.size)
+        .attr('r', (d: any) => d.size)
         .attr('stroke-width', 2)
     })
 
